@@ -757,3 +757,65 @@ Processing by ArtistsController#show as HTML
   [1m[35mSong Load (0.2ms)[0m  SELECT "songs".* FROM "songs" WHERE "songs"."artist_id" = ?  [["artist_id", 1]]
   Rendered artists/show.html.erb within layouts/application (9.7ms)
 Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2016-09-12 21:45:07 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/kerrydougherty/.rvm/gems/ruby-2.3.1/gems/railties-4.2.5/lib/rails/templates/rails/welcome/index.html.erb (2.5ms)
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/songs/new" for ::1 at 2016-09-12 21:45:18 -0400
+Processing by SongsController#new as HTML
+  [1m[35mArtist Load (0.5ms)[0m  SELECT "artists".* FROM "artists"
+  Rendered songs/_form.html.erb (51.1ms)
+  Rendered songs/new.html.erb within layouts/application (56.2ms)
+Completed 200 OK in 280ms (Views: 269.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/artists/1/songs" for ::1 at 2016-09-12 21:45:58 -0400
+Processing by SongsController#index as HTML
+  Parameters: {"artist_id"=>"1"}
+  [1m[36mArtist Load (0.2ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSong Load (1.0ms)[0m  SELECT "songs".* FROM "songs" WHERE "songs"."artist_id" = ?  [["artist_id", 1]]
+  Rendered songs/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 38ms (Views: 11.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/artists/1/songs/new" for ::1 at 2016-09-12 21:46:02 -0400
+Processing by SongsController#new as HTML
+  Parameters: {"artist_id"=>"1"}
+  [1m[36mArtist Load (0.2ms)[0m  [1mSELECT "artists".* FROM "artists"[0m
+  [1m[35mArtist Load (0.1ms)[0m  SELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered songs/_form.html.erb (5.8ms)
+  Rendered songs/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/artists/123123/songs/new" for ::1 at 2016-09-12 21:46:07 -0400
+Processing by SongsController#new as HTML
+  Parameters: {"artist_id"=>"123123"}
+  [1m[36mArtist Load (0.2ms)[0m  [1mSELECT "artists".* FROM "artists"[0m
+  [1m[35mArtist Load (0.1ms)[0m  SELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1  [["id", 123123]]
+  Rendered songs/_form.html.erb (3.9ms)
+  Rendered songs/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/artists/123123/songs/new" for ::1 at 2016-09-12 21:48:09 -0400
+Processing by SongsController#new as HTML
+  Parameters: {"artist_id"=>"123123"}
+  [1m[36mArtist Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 123123]]
+Redirected to http://localhost:3000/artists
+Completed 302 Found in 21ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/artists" for ::1 at 2016-09-12 21:48:09 -0400
+Processing by ArtistsController#index as HTML
+  [1m[35mArtist Load (0.2ms)[0m  SELECT "artists".* FROM "artists"
+  Rendered artists/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-09-12 21:48:10 -0400
